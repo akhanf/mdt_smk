@@ -1,8 +1,13 @@
+import numpy as np
+
 configfile: 'config.yml'
+
+subjects = np.loadtxt(config['subject_txt'],dtype='str')
+print(subjects)
 
 rule all:
     input:    
-        expand('results/sub-{subject}/{model}',subject=config['subjects'],model=config['model'])
+        expand('results/sub-{subject}/{model}',subject=subjects,model=config['model'])
 
 rule create_protocol:
     input:

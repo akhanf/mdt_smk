@@ -7,6 +7,6 @@ create_protocol_opts: ''
 model_fit_opts: ''
 model: 'NODDI'
 
-subjects:
-  - 6000030
+#text file with subject ids only
+subject_txt: 'subjects.txt'
 
