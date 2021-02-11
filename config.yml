@@ -1,0 +1,12 @@
+in_dwi_nii: '/scratch/akhanf/3_processing/hcpAging_snakedwi/results/sub-{subject}/dwi/sub-{subject}_desc-eddy_dwi.nii.gz'
+in_dwi_bval: '/scratch/akhanf/3_processing/hcpAging_snakedwi/results/sub-{subject}/dwi/sub-{subject}_desc-eddy_dwi.bval'
+in_dwi_bvec: '/scratch/akhanf/3_processing/hcpAging_snakedwi/results/sub-{subject}/dwi/sub-{subject}_desc-eddy_dwi.bvec'
+in_mask_nii: '/scratch/akhanf/3_processing/hcpAging_snakedwi/results/sub-{subject}/dwi/sub-{subject}_desc-brain_method-bet_from-b0_frac-1_mask.nii.gz'
+
+create_protocol_opts: ''
+model_fit_opts: ''
+model: 'NODDI'
+
+subjects:
+  - 6000030
+
