@@ -17,6 +17,7 @@ rule create_protocol:
         opts = config['create_protocol_opts']
     output:
         protocol = 'results/sub-{subject}/dwi.prtcl'
+    group: 'subj'
     container: '/project/6050199/akhanf/singularity/bids-apps/khanlab_mdt-bids_v0.1.sif'
     shell: 'mdt-create-protocol {input.bvec} {input.bval} -o {output.protocol} {params.opts}'
 
@@ -29,5 +30,10 @@ rule model_fit:
         opts = config['model_fit_opts']
     output:
         out_folder = directory('results/sub-{subject}/{model}')
+    group: 'subj'
+    threads: 16
+    resources:
+        mem_mb = 32000,
+        time = 180
     container: '/project/6050199/akhanf/singularity/bids-apps/khanlab_mdt-bids_v0.1.sif'
     shell: 'mdt-model-fit {wildcards.model} {input.dwi} {input.protocol} {input.mask} -o {output.out_folder} {params.opts}'
